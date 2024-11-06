@@ -22,6 +22,9 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.util.ArrayList;
 
+/**
+ * @author tuyen
+ */
 public class MainController {
     private static final String ICON_URL = "src/main/resources/com/teamobi/map/images/map/%d.png";
     private static final String PLAYER_URL = "src/main/resources/com/teamobi/map/images/player.png";

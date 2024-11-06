@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.Objects;
 
 /**
- * JavaFX App
+ * @author tuyen
  */
 public class App extends Application {
 

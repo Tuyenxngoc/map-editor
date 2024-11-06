@@ -5,6 +5,9 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+/**
+ * @author tuyen
+ */
 public class Utils {
 
     public static short bytesToShort(byte[] byteArray, int offset) {

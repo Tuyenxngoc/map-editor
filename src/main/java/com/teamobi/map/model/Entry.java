@@ -1,5 +1,8 @@
 package com.teamobi.map.model;
 
+/**
+ * @author tuyen
+ */
 public class Entry {
     public short x;
     public short y;

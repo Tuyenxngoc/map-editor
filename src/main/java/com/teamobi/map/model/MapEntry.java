@@ -1,5 +1,8 @@
 package com.teamobi.map.model;
 
+/**
+ * @author tuyen
+ */
 public class MapEntry extends Entry {
     public byte icon;
 
