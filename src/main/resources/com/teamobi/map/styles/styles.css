@@ -1,0 +1,3 @@
+.highlighted {
+    -fx-effect: dropshadow(gaussian, yellow, 15, 0.7, 0, 0);
+}

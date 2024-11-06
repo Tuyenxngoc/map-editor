@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="521.0" prefWidth="838.0"
+            xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.teamobi.map.controller.MainController">
+    <top>
+        <MenuBar BorderPane.alignment="CENTER">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#newShow" text="New" accelerator="Ctrl+N"/>
+                        <MenuItem mnemonicParsing="false" onAction="#openFileAction" text="Open file"
+                                  accelerator="Ctrl+O"/>
+                        <MenuItem mnemonicParsing="false" onAction="#saveAction" text="Save" accelerator="Ctrl+S"/>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                    <items>
+                        <MenuItem mnemonicParsing="false" fx:id="menuItemResize" disable="true" onAction="#resizeShow"
+                                  text="Resize"/>
+                        <MenuItem mnemonicParsing="false" fx:id="menuItemSnapToGrid" disable="true"
+                                  onAction="#toggleSnapToGrid" text="Toggle Snap to Grid"
+                        />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Preview">
+                    <items>
+                        <MenuItem mnemonicParsing="false" fx:id="menuItemPreview" disable="true" onAction="#previewShow"
+                                  text="Preview"/>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#openSettingsDialog" text="Settings"/>
+                        <MenuItem mnemonicParsing="false" onAction="#aboutShow" text="About"/>
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+    <left>
+        <GridPane fx:id="gridPane" disable="true" gridLinesVisible="true" hgap="10.0" prefHeight="486.0"
+                  prefWidth="221.0" BorderPane.alignment="CENTER">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="175.0" minWidth="10.0" prefWidth="162.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints/>
+                <RowConstraints maxHeight="165.0" minHeight="10.0" prefHeight="146.0" vgrow="SOMETIMES"/>
+                <RowConstraints vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="310.0" minHeight="10.0" prefHeight="166.0" vgrow="SOMETIMES"/>
+                <RowConstraints vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="310.0" minHeight="10.0" prefHeight="146.0" vgrow="SOMETIMES"/>
+            </rowConstraints>
+            <children>
+                <GridPane fx:id="gridPosition" disable="true" prefHeight="75.0" prefWidth="175.0" GridPane.rowIndex="1">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="61.0" minWidth="10.0"
+                                           prefWidth="50.0"/>
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="134.0" minWidth="10.0"
+                                           prefWidth="124.0"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                    <children>
+                        <TextField fx:id="textFieldIcon" maxHeight="-Infinity" maxWidth="-Infinity"
+                                   onKeyPressed="#inputEnter" prefHeight="25.0" prefWidth="100.0" text="0"
+                                   GridPane.columnIndex="1"/>
+                        <TextField maxHeight="-Infinity" maxWidth="-Infinity" onKeyPressed="#inputEnter"
+                                   prefHeight="25.0" prefWidth="100.0" text="0" GridPane.columnIndex="1"
+                                   GridPane.rowIndex="1" fx:id="textFieldX"/>
+                        <TextField fx:id="textFieldY" maxHeight="-Infinity" maxWidth="-Infinity"
+                                   onKeyPressed="#inputEnter" prefHeight="25.0" prefWidth="100.0" text="0"
+                                   GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                        <Label text="Icon:"/>
+                        <Label text="X:" GridPane.rowIndex="1"/>
+                        <Label text="Y:" GridPane.rowIndex="2"/>
+                    </children>
+                </GridPane>
+                <GridPane GridPane.rowIndex="3">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="175.0" minWidth="10.0"
+                                           prefWidth="175.0"/>
+                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="136.0" minWidth="0.0"
+                                           prefWidth="0.0"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="53.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="155.0" minHeight="5.0" prefHeight="155.0" vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="97.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                    <children>
+                        <GridPane fx:id="gridControl" disable="true" GridPane.rowIndex="1">
+                            <columnConstraints>
+                                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0"
+                                                   prefWidth="100.0"/>
+                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0"
+                                                   prefWidth="100.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="BOTTOM"
+                                                vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES"/>
+                            </rowConstraints>
+                            <children>
+                                <Button mnemonicParsing="false" onAction="#upAction" prefHeight="40.0" prefWidth="40.0"
+                                        text="UP" GridPane.columnIndex="1">
+                                    <font>
+                                        <Font size="8.0"/>
+                                    </font>
+                                </Button>
+                                <Button mnemonicParsing="false" onAction="#leftAction" prefHeight="40.0"
+                                        prefWidth="40.0" text="LEFT" GridPane.rowIndex="1">
+                                    <font>
+                                        <Font size="8.0"/>
+                                    </font>
+                                </Button>
+                                <Button mnemonicParsing="false" onAction="#downAction" prefHeight="40.0"
+                                        prefWidth="40.0" text="DOWN" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                    <font>
+                                        <Font size="8.0"/>
+                                    </font>
+                                </Button>
+                                <Button mnemonicParsing="false" onAction="#rightAction" prefHeight="40.0"
+                                        prefWidth="40.0" text="RIGHT" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                    <font>
+                                        <Font size="8.0"/>
+                                    </font>
+                                </Button>
+                            </children>
+                        </GridPane>
+                    </children>
+                </GridPane>
+                <GridPane GridPane.rowIndex="5">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="143.0"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                    <children>
+                        <Button fx:id="btnAddPlayer" mnemonicParsing="false" onAction="#addPlayerShow" text="Add Player"
+                                GridPane.rowIndex="2"/>
+                        <Button fx:id="btnAddIcon" mnemonicParsing="false" onAction="#addIconShow" prefHeight="25.0"
+                                prefWidth="74.0" text="Add Icon" GridPane.rowIndex="1"/>
+                        <Button fx:id="btnRemove" disable="true" mnemonicParsing="false" onAction="#removeAction"
+                                prefHeight="25.0" prefWidth="75.0" text="Remove"/>
+                    </children>
+                </GridPane>
+                <Label text="Position" textFill="#0388f4">
+                    <font>
+                        <Font size="10.0"/>
+                    </font>
+                </Label>
+                <Label text="Control" textFill="#0388f4" GridPane.rowIndex="2">
+                    <font>
+                        <Font size="10.0"/>
+                    </font>
+                </Label>
+                <Label text="Other" textFill="#0388f4" GridPane.rowIndex="4">
+                    <font>
+                        <Font size="10.0"/>
+                    </font>
+                </Label>
+            </children>
+            <BorderPane.margin>
+                <Insets/>
+            </BorderPane.margin>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            </padding>
+        </GridPane>
+    </left>
+    <center>
+        <ScrollPane pannable="true" BorderPane.alignment="CENTER">
+            <content>
+                <AnchorPane fx:id="mapEdit" minHeight="0.0" minWidth="0.0" onMouseClicked="#clicked"
+                            onMouseMoved="#mouseXY"/>
+            </content>
+        </ScrollPane>
+    </center>
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" spacing="5">
+            <Label fx:id="infoLabel" text="MapBrick: 0 - Player: 0" textFill="#ff5733">
+                <font>
+                    <Font size="14.0"/>
+                </font>
+                <padding>
+                    <Insets top="5.0" right="10.0" bottom="5.0" left="10.0"/>
+                </padding>
+            </Label>
+            <Label fx:id="mouseXY" text="X: 0 - Y: 0" textFill="#085ff5">
+                <font>
+                    <Font size="14.0"/>
+                </font>
+                <padding>
+                    <Insets top="5.0" right="10.0" bottom="5.0" left="10.0"/>
+                </padding>
+            </Label>
+        </HBox>
+    </bottom>
+</BorderPane>
