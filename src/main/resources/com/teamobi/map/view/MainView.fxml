@@ -138,6 +138,10 @@
                                         <Font size="8.0"/>
                                     </font>
                                 </Button>
+                                <TextField fx:id="textFieldMoveStep" alignment="CENTER" prefWidth="40.0"
+                                           prefHeight="40.0" maxHeight="40.0"
+                                           maxWidth="40.0" text="1" onKeyPressed="#updateMoveStep"
+                                           GridPane.columnIndex="1" GridPane.rowIndex="1"/>
                             </children>
                         </GridPane>
                     </children>

@@ -37,7 +37,7 @@ public class MainController {
     @FXML
     private AnchorPane mapEdit;
     @FXML
-    private TextField textFieldX, textFieldY, textFieldIcon;
+    private TextField textFieldX, textFieldY, textFieldIcon, textFieldMoveStep;
     @FXML
     private Label mouseXY, infoLabel;
     @FXML
@@ -47,6 +47,7 @@ public class MainController {
     @FXML
     private Button btnRemove, btnAddIcon, btnAddPlayer;
 
+    private int moveStep = 1;
     private boolean isSnapToGridEnabled = false;
     private boolean isReadyToMove = false;
     private ImageView selectedImageView = null;
@@ -253,6 +254,11 @@ public class MainController {
             createAndDisplayPlayerImageView(player);
         }
         updateInfoLabel();
+    }
+
+    @FXML
+    public void initialize() {
+        textFieldMoveStep.setText(String.valueOf(moveStep));
     }
 
     @FXML
@@ -541,22 +547,22 @@ public class MainController {
 
     @FXML
     public void upAction() {
-        updatePosition((short) 0, (short) -1);
+        updatePosition((short) 0, (short) -moveStep);
     }
 
     @FXML
     public void downAction() {
-        updatePosition((short) 0, (short) 1);
+        updatePosition((short) 0, (short) moveStep);
     }
 
     @FXML
     public void leftAction() {
-        updatePosition((short) -1, (short) 0);
+        updatePosition((short) -moveStep, (short) 0);
     }
 
     @FXML
     public void rightAction() {
-        updatePosition((short) 1, (short) 0);
+        updatePosition((short) moveStep, (short) 0);
     }
 
     @FXML
@@ -684,6 +690,16 @@ public class MainController {
                         "\n" + e.getMessage());
             } catch (Exception e) {
                 e.printStackTrace();
+            }
+        }
+    }
+
+    @FXML
+    public void updateMoveStep(KeyEvent k) {
+        if (k.getCode().equals(KeyCode.ENTER)) {
+            try {
+                moveStep = Integer.parseInt(textFieldMoveStep.getText());
+            } catch (Exception ignored) {
             }
         }
     }
